@@ -13,3 +13,17 @@ services:
       context: .
       dockerfile: EmailWorker\Dockerfile
 
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
